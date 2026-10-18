@@ -1,0 +1,7 @@
+{
+  "pythonVersion": "3.8",
+  "venvPath": "../..",
+  "venv": ".venv-eadro",
+  "include": ["*.py"],
+  "extraPaths": [".", "../native_reproduction_20261013", "../../.venv-eadro/lib/python3.8/site-packages"]
+}

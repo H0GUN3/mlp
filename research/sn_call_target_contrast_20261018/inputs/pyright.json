@@ -1,0 +1,8 @@
+{
+  "include": ["../prepare.py", "../test_prepare.py"],
+  "extraPaths": [".."],
+  "pythonVersion": "3.8",
+  "typeCheckingMode": "basic",
+  "venvPath": "/home/gnho1236/r2",
+  "venv": ".venv-eadro"
+}

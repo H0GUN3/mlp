@@ -1,0 +1,7 @@
+{
+  "pythonVersion": "3.8",
+  "venvPath": "../..",
+  "venv": ".venv-eadro",
+  "include": ["native_models.py"],
+  "extraPaths": ["../../.venv-eadro/lib/python3.8/site-packages"]
+}

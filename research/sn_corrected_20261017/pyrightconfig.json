@@ -1,0 +1,14 @@
+{
+  "include": ["*.py"],
+  "extraPaths": [".", "../native_reproduction_20261013"],
+  "executionEnvironments": [
+    {
+      "root": ".",
+      "extraPaths": [".", "../native_reproduction_20261013"]
+    }
+  ],
+  "venvPath": "../..",
+  "venv": ".venv-eadro",
+  "pythonVersion": "3.8",
+  "typeCheckingMode": "basic"
+}

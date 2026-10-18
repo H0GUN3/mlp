@@ -1,0 +1,12 @@
+{
+  "include": [
+    "selective_loader.py",
+    "prepare_horizon.py",
+    "test_selective_loader.py",
+    "test_prepare_horizon.py"
+  ],
+  "pythonVersion": "3.8",
+  "typeCheckingMode": "basic",
+  "venvPath": "/home/gnho1236/r2",
+  "venv": ".venv-eadro"
+}

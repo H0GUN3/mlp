@@ -1,0 +1,7 @@
+{
+  "pythonVersion": "3.10",
+  "venvPath": "../..",
+  "venv": ".venv-mlp",
+  "include": ["*.py"],
+  "extraPaths": [".", "../..", "../../.venv-mlp/lib/python3.10/site-packages"]
+}

@@ -1,0 +1,17 @@
+{
+  "include": [
+    "run_horizon.py",
+    "test_run_horizon.py"
+  ],
+  "pythonVersion": "3.8",
+  "venvPath": "/home/gnho1236/r2",
+  "venv": ".venv-eadro",
+  "executionEnvironments": [
+    {
+      "root": ".",
+      "extraPaths": [
+        "/home/gnho1236/r2/research/native_reproduction_20261013"
+      ]
+    }
+  ]
+}

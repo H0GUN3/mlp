@@ -1,0 +1,7 @@
+{
+  "venvPath": ".",
+  "venv": ".venv-mlp",
+  "extraPaths": ["scripts", ".venv-mlp/lib/python3.10/site-packages"],
+  "include": ["scripts"],
+  "exclude": [".venv", ".venv-mlp", "data", "models"]
+}

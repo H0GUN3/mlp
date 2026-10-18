@@ -1,0 +1,8 @@
+{
+  "include": ["inspect_re2_schema.py", "inspect_re2_values.py", "re2_stage1.py", "test_re2_stage1.py", "re2_stage1_batch.py"],
+  "extraPaths": [".", "../../scripts"],
+  "venvPath": "../..",
+  "venv": ".venv-mlp",
+  "pythonVersion": "3.10",
+  "typeCheckingMode": "basic"
+}

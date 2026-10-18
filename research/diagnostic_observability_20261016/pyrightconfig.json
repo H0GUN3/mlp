@@ -1,0 +1,7 @@
+{
+  "include": ["*.py"],
+  "extraPaths": ["../.."],
+  "venvPath": "../..",
+  "venv": ".venv-mlp",
+  "typeCheckingMode": "basic"
+}

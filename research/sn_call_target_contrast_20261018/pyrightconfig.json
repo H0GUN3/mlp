@@ -1,0 +1,8 @@
+{
+  "include": ["*.py"],
+  "venvPath": "/home/gnho1236/r2",
+  "venv": ".venv-eadro",
+  "pythonVersion": "3.8",
+  "typeCheckingMode": "basic",
+  "extraPaths": [".", "../native_reproduction_20261013"]
+}

@@ -1,0 +1,17 @@
+# Exact cache audit
+
+## Finding — safe exact reuse exists; no extra hit proved
+
+- `prepare.py::case_groups` groups by window/node, makes all 1,025 per-template relative knot arrays (`make_knots`), then hashes them with `knot_key`: fixed `RE2-native-relative10-seed42-v1` domain, each knot length and exact little-endian float64 bytes. This deliberately excludes case/window IDs, since fitting fixes the seed at 42 for every group.
+- `cached_fit` accepts a hit only for that key and verifies paired NPZ/JSON presence, NPZ SHA256, split/input-binding/policy/template-snapshot hashes, key, seed 42, event count, and finite nonnegative vector of expected dimension. Misses call the unchanged `fit_hawkes`; saved arrays retain the actual float64 baseline. Solver remains HawkesADM4(decay=3), horizon 10, baseline start .2, default native initialization, max_iter 50/tol unchanged.
+- Evidence: profile records 91,060 nonempty groups, 80,028 unique exact knot keys, and 52,762 true-empty groups. Thus 11,032 duplicate occurrences are already eliminated; empty groups need no fit. Do not interpret this as 80,028 free hits: only **3** physical Hawkes NPZs and 3 paired JSON records exist. Profile and per-case matched records share binding `e65db027…e534c`, split `3cf224ea…f3acf2`; template snapshot is `70c77a93…b3072`. All three cache pairs pass metadata-key/provenance checks, NPZ digest checks, and array checks (sole `baseline`, shape `(1025,)`, finite; dtype is float64). Remaining exact unique fits: **80,025**.
+- The stage-one manifest SHA256 matches preflight; its 72 case set is covered by preflight’s source/metadata/member hashes and input binding. All 72 matched records carry that binding and snapshot. Preflight reports zero raw/protected-case opens. The old manifest itself has no `source_sha256` field and predates this 48/24 split, so its partition column is not a valid check for current reassignment; use the split-bound preflight records, not that column.
+
+## Accept / reject
+
+- **Accept:** same exact relative knot bytes, seed 42, 1,025-event template mapping, and all current cache provenance hashes. This safely reuses the 3 saved results and deduplicates the already-counted identical inputs; future runs can reuse a valid cache only when the whole key and provenance still match.
+- **Reject as unproved:** further deduplication beyond the recorded 80,028 unique keys. No additional exact key collision/hit is evidenced by existing metadata; finding one would require processing inputs, which this audit did not do.
+- **Reject:** template permutation, time coarsening/rounding, event/template removal or merging, and dropping empty dimensions. These alter knot identity and/or the 1,025-dimensional solver problem. In particular seed-42 random initialization/adjacency means a permutation is not justified by remapping output alone; numerical equivalence of the complete initialization and solver would be required.
+- **Separate accounting:** the 3 warm cache hits are verified saved-feature reuse. They do not remove the 80,025 remaining first fits. The current Hawkes seed is fixed at42 independently of neural training seeds11/23/37: one completed input bundle is reused across all three neural fits, so preprocessing is not tripled. Only a hypothetical change of the Hawkes solver seed itself would require a distinct cache identity; that change is not part of this contract.
+
+No solver was run, no input was reduced, and no new feature/cache method is proposed.

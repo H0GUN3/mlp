@@ -1,0 +1,22 @@
+# Publish source and documentation only; experiment artifacts stay local.
+*
+!*/
+!*.py
+!*.md
+!pyright*.json
+!optionalpyright*.json
+!requirements*.txt
+!*.ini
+!.gitignore
+.*
+!.gitignore
+.venv*/
+__pycache__/
+data/
+models/
+evidence/
+generated-images/
+# External source is acquired separately; see PUBLICATION.md.
+research/mlp_prerequisites/eadro_model.py
+research/mlp_prerequisites/eadro_corrected_model.py
+research/baselines/reference/

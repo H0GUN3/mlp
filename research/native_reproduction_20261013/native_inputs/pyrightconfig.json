@@ -1,0 +1,8 @@
+{
+  "venvPath": "/home/gnho1236/r2",
+  "venv": ".venv-eadro",
+  "pythonVersion": "3.8",
+  "pythonPlatform": "Linux",
+  "extraPaths": [".."],
+  "include": ["../native_data.py", "../native_data_test.py"]
+}
